@@ -16,8 +16,8 @@ export default class MyPlugin extends Plugin {
 
 		await this.loadSettings();
 
-		this.addRibbonIcon('dice', 'Sample Plugin', () => {
-			new Notice('This is a notice!');
+		this.addRibbonIcon('dice', 'Task View', () => {
+			new Notice('Will open task view page!');
 		});
 
 		this.addStatusBarItem().setText('Status Bar Text');
@@ -72,12 +72,12 @@ class SampleModal extends Modal {
 	}
 
 	onOpen() {
-		let {contentEl} = this;
+		let { contentEl } = this;
 		contentEl.setText('Woah!');
 	}
 
 	onClose() {
-		let {contentEl} = this;
+		let { contentEl } = this;
 		contentEl.empty();
 	}
 }
@@ -91,17 +91,17 @@ class SampleSettingTab extends PluginSettingTab {
 	}
 
 	display(): void {
-		let {containerEl} = this;
+		let { containerEl } = this;
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', {text: 'Settings for my awesome plugin.'});
+		containerEl.createEl('h2', { text: 'Task View Settings' });
 
 		new Setting(containerEl)
-			.setName('Setting #1')
-			.setDesc('It\'s a secret')
+			.setName('Folders')
+			.setDesc('Choose folders to search')
 			.addText(text => text
-				.setPlaceholder('Enter your secret')
+				.setPlaceholder('some folder')
 				.setValue('')
 				.onChange(async (value) => {
 					console.log('Secret: ' + value);
